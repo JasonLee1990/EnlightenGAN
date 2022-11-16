@@ -3,7 +3,8 @@ from options.train_options import TrainOptions
 from data.data_loader import CreateDataLoader
 from models.models import create_model
 from util.visualizer import Visualizer
-
+import torch
+# torch.backends.cudnn.enabled = False
 def get_config(config):
     import yaml
     with open(config, 'r') as stream:

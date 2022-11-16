@@ -9,7 +9,7 @@ opt = parser.parse_args()
 
 if opt.train:
 	os.system("python train.py \
-		--dataroot ../final_dataset \
+		--dataroot ./train_dataset \
 		--no_dropout \
 		--name enlightening \
 		--model single \
@@ -21,10 +21,10 @@ if opt.train:
         --patchD_3 5 \
         --n_layers_D 5 \
         --n_layers_patchD 4 \
-		--fineSize 320 \
-        --patchSize 32 \
+		--fineSize 160 \
+        --patchSize 16 \
 		--skip 1 \
-		--batchSize 32 \
+		--batchSize 16 \
         --self_attention \
 		--use_norm 1 \
 		--use_wgan 0 \
@@ -34,13 +34,13 @@ if opt.train:
 		--instance_norm 0 \
 		--vgg 1 \
         --vgg_choose relu5_1 \
-		--gpu_ids 0,1,2 \
+		--gpu_ids 0 \
 		--display_port=" + opt.port)
 
 elif opt.predict:
 	for i in range(1):
 	        os.system("python predict.py \
-	        	--dataroot ../test_dataset \
+	        	--dataroot ./test_dataset \
 	        	--name enlightening \
 	        	--model single \
 	        	--which_direction AtoB \
